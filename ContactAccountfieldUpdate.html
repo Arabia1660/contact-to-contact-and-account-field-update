@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Contact Account Field Update" icon-name="standard:contact">
+        <div class="slds-m-around_medium">
+            <template if:true={showLoadingSpinner}>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </template>
+
+            <div class="slds-m-bottom_medium">
+                <lightning-button label="Sync Data" onclick={syncData} variant="brand"></lightning-button>
+            </div>
+
+            <template if:true={data}>
+                <lightning-datatable 
+                    data={data}
+                    columns={columns}
+                    key-field="Id"
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}
+                    onrowselection={handleRowAction}>
+                </lightning-datatable>
+            </template>
+        </div>
+    </lightning-card> 
+</template>
